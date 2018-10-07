@@ -1,7 +1,21 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import "./App.css";
 
 import Task from "./components/Task";
+
+// // Initialize Firebase
+// // TODO: Replace with your project's customized code snippet
+// var config = {
+//   apiKey: "<API_KEY>",
+//   authDomain: "<PROJECT_ID>.firebaseapp.com",
+//   databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+//   storageBucket: "<BUCKET>.appspot.com"
+// };
+// firebase.initializeApp(config);
+// //
+
+// let db = firebase.firestore();
 
 class App extends Component {
   state = {
@@ -10,7 +24,24 @@ class App extends Component {
   };
 
   // componentDidMount() {
+  //   db.collection("tasks").onSnapshot(snapshot => {
+  //     snapshot.docChanges().forEach(change => {
+  //       if (change.type === "added") {
+  //         // a task has been added
+  //         const todos = this.state.todos;
+  //         const newTask = change.doc.data();
+  //         this.setState({ todos: [...this.state.todos, newTask] });
+  //       }
 
+  //       if (change.type === "modified") {
+  //         // a task has been modified
+  //       }
+
+  //       if (change.type === "removed") {
+  //         // a task has been removed
+  //       }
+  //     });
+  //   });
   // }
 
   // TODO: add text input for custom tasks
