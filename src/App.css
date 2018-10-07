@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.todo {
+  display: flex;
+  flex-direction: column;
+  background-color: lightGray;
+  margin: 10px;
+  padding: 5px;
+  border-width: 10px;
+  border-color: black
+}
+.strikethrough {
+  text-decoration: line-through;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -11,17 +24,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -2,17 +2,25 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import Task from "./components/Task";
+
 class App extends Component {
   state = {
     todos: [],
     count: 0
   };
 
+  // componentDidMount() {
+
+  // }
+
+  // TODO: add text input for custom tasks
   addToDo = () => {
     const todos = this.state.todos;
     let id = this.state.count + 1;
     let newToDo = {
       id,
+      completed: false,
       task: "I need to do this!"
     };
 
@@ -24,18 +32,31 @@ class App extends Component {
     this.setState({ todos: todos.filter(todo => todo.id !== id) });
   };
 
-  toggleToDo = () => {};
+  toggleToDo = id => {
+    const todos = this.state.todos;
+    this.setState({
+      todos: todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <div onClick={this.addToDo}>add todo</div>
-        {this.state.todos.map(todo => (
-          <div onClick={() => this.toggleToDo(todo.id)}>
-            <h1>{todo.id}</h1>
-            <h2>{todo.task}</h2>
-            <div onClick={() => this.removeToDo(todo.id)}>remove</div>
-          </div>
+        {this.state.todos.map(({ id, completed, task }) => (
+          <Task
+            key={id}
+            id={id}
+            completed={completed}
+            task={task}
+            removeToDo={this.removeToDo}
+            toggleToDo={this.toggleToDo}
+          />
         ))}
       </div>
     );
